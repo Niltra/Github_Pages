@@ -1,0 +1,182 @@
+/* --- FUENTES TEMÁTICAS --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* --- VARIABLES DE COLOR PARA TARJETAS (Se mantienen los colores únicos por tarjeta) --- */
+:root {
+    --nature-color: #2a9d8f;
+    --philosophy-color: #8338ec;
+    --science-color: #6a0dad;
+    --spiderman-color: #e62429;
+    --minecraft-color-grass: #5a832e;
+    --minecraft-color-dirt: #966C4A;
+    --knowledge-color: #fca311; /* Este es nuestro nuevo acento secundario */
+}
+
+/* --- ANIMACIÓN DE FONDO --- */
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #000;
+    color: #c9d1d9;
+    overflow-x: hidden;
+}
+
+#stars {
+  background:#000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+  position:fixed; top:0; left:0; right:0; bottom:0; z-index: -2;
+}
+#stars2 {
+  background:transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+  position:fixed; top:0; left:0; right:0; bottom:0; z-index: -1;
+  animation:move-twink-back 200s linear infinite;
+}
+
+.header-intereses {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.btn-back-intereses {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(22, 27, 34, 0.7);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    border: 1px solid #30363d;
+    transition: all 0.3s;
+}
+
+.btn-back-intereses:hover {
+    background-color: #161b22;
+    border-color: #c9d1d9;
+}
+
+.container-intereses {
+    padding: 2rem;
+}
+
+.title-intereses {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.title-intereses h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    color: #fff;
+    /* Usamos el color ámbar para el brillo, creando consistencia */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--knowledge-color), 0 0 20px var(--knowledge-color);
+}
+
+.title-intereses p {
+    font-size: 1.1rem;
+    color: #8b949e;
+    text-align: center;
+}
+
+.grid-intereses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-interes {
+    background: rgba(22, 27, 34, 0.8);
+    border: 1px solid #30363d;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-bottom: 4px solid; /* Borde inferior genérico */
+}
+
+.card-interes:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.card-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #8b949e;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* --- COLORES PERSONALIZADOS POR TARJETA --- */
+.nature-card { border-color: var(--nature-color); }
+.nature-card .card-icon, .nature-card .card-title { color: var(--nature-color); }
+.nature-card:hover { box-shadow: 0 0 20px var(--nature-color); }
+
+.philosophy-card { border-color: var(--philosophy-color); }
+.philosophy-card .card-icon, .philosophy-card .card-title { color: var(--philosophy-color); }
+.philosophy-card:hover { box-shadow: 0 0 20px var(--philosophy-color); }
+
+.science-card { border-color: var(--science-color); }
+.science-card .card-icon, .science-card .card-title { color: var(--science-color); }
+.science-card:hover { box-shadow: 0 0 20px var(--science-color); }
+
+.spiderman-card { border-color: var(--spiderman-color); }
+.spiderman-card .card-icon, .spiderman-card .card-title { color: var(--spiderman-color); }
+.spiderman-card:hover { box-shadow: 0 0 20px var(--spiderman-color); }
+
+.minecraft-card { border-color: var(--minecraft-color-dirt); }
+.minecraft-card .card-icon, .minecraft-card .card-title { color: var(--minecraft-color-grass); }
+.minecraft-card:hover { box-shadow: 0 0 20px var(--minecraft-color-grass); }
+
+.knowledge-card { border-color: var(--knowledge-color); }
+.knowledge-card .card-icon, .knowledge-card .card-title { color: var(--knowledge-color); }
+.knowledge-card:hover { box-shadow: 0 0 20px var(--knowledge-color); }
+
+/* --- RESPONSIVE PARA INTERESES --- */
+@media (max-width: 768px) {
+    .container-intereses {
+        padding: 1rem;
+    }
+    .title-intereses {
+        margin-top: 5rem; /* Más espacio para el botón de volver */
+        margin-bottom: 2rem;
+    }
+    .title-intereses h1 {
+        font-size: 1.5rem;
+    }
+    .grid-intereses {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-intereses h1 {
+        font-size: 1.2rem;
+    }
+    .card-interes {
+        padding: 1.5rem;
+    }
+}
