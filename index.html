@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <img src="images/Foto_personal.jpg" alt="Foto de perfil" class="profile-pic">
+            <h1>David Navas</h1>
+            <p class="subtitle">Java Backend Developer | Interesado por IA y Ciberseguridad</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <a href="#sobre-mi">Sobre Mí</a>
+        <a href="#java">Java</a>
+        <a href="#ia">IA</a>
+        <a href="#ciberseguridad">Ciberseguridad</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <section id="sobre-mi">
+                <h2 class="section-title"><i class="fas fa-user-astronaut"></i> Sobre Mí</h2>
+                <div class="card">
+                    <p>Desarrollador Java Backend, con conocimientos en POO, bases de datos (MySQL, Oracle SQL) y frameworks como Spring e Hibernate. Me motiva aprender y aplicar nuevas tecnologías, con especial interés en ciberseguridad e inteligencia artificial. En mi tiempo libre disfruto caminando por la costa, probando cafeterías nuevas y explorando rincones del mundo.</p>
+                    <p>Para un resumen completo de mi trayectoria, puedes descargar mi CV en formato PDF:</p>
+                    <a href="pdf/CV/David_Navas_Parejo_.pdf" download class="btn"><i class="fas fa-download"></i> Descargar CV General</a>
+                </div>
+            </section>
+            
+            <section id="porque-yo">
+                <h2 class="section-title"><i class="fas fa-rocket"></i> Conóceme más a fondo</h2>
+                <div class="card-link-wrapper">
+                    <div class="card card-link" onclick="location.href='mas_sobre_mi.html'">
+                        <h3>¿Por qué soy el candidato que buscas?</h3>
+                        <p>Descubre mi enfoque, mis habilidades blandas y cómo puedo aportar valor a tu equipo desde el primer día.</p>
+                        <span class="btn">Saber más</span>
+                    </div>
+                </div>
+            </section>
+            <section id="java">
+                <h2 class="section-title"><i class="fab fa-java"></i> Dominio en Java</h2>
+                <div class="card">
+                   
+                    <p>Desarrollador Java Backend, con experiencia práctica en programación, gestión de bases de datos como MySQL y Oracle, y el uso de frameworks clave como Spring e Hibernate. Busco aplicar y perfeccionar técnicas que aseguren código eficiente, claro y fácil de mantener.</p>
+                    <h3>Títulos y Certificaciones Relevantes</h3>
+                    <ul class="pdf-list">
+                        <li><a href="pdf/" target="_blank"><i class="fas fa-file-pdf"></i> Máster Java 110h</a></li>
+                        <li><a href="pdf/" target="_blank"><i class="fas fa-file-pdf"></i> 
+Hibernate con Java: Persistencia Profesional y Buenas Prácticas</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="ia">
+                <h2 class="section-title"><i class="fas fa-robot"></i> Inteligencia Artificial</h2>
+                <div class="card">
+                   
+                    <p>Interesado por el potencial de la inteligencia artificial, me informo y estudio sus aplicaciones para integrarlas en futuros proyectos Java. Aunque aún no he desarrollado proyectos propios en IA, estoy preparando el terreno para aplicar machine learning y deep learning en el desarrollo de software.</p>
+                    <h3>Títulos y Certificaciones Relevantes</h3>
+                    <ul class="pdf-list">
+                        <li><a href="pdf/IA/Curso_IA_Aplicado_JAVA.pdf" target="_blank"><i class="fas fa-file-pdf"></i> 
+Java, Spring Boot y productividad con IA</a></li>
+                        <li><a href="pdf/IA/Curso_IA_GOOGLE.pdf" target="_blank"><i class="fas fa-file-pdf"></i> 
+Google: Inteligencia Artificial y productividad</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="ciberseguridad">
+                <h2 class="section-title"><i class="fas fa-shield-halved"></i> Ciberseguridad</h2>
+                <div class="card">
+                   
+                    <p>Entiendo que la seguridad no es una opción, sino una necesidad. Tengo conocimientos en identificación de vulnerabilidades y en fortificación de sistemas, con un enfoque claro en la defensa y protección de activos digitales frente a amenazas emergentes.</p>
+                    <h3>Títulos y Certificaciones Relevantes</h3>
+                    <ul class="pdf-list">
+                        <li><a href="pdf/Ciberseguridad/GOOGLE_CIBERSECURITY.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Google Cibersecurity</a></li>
+                        <li><a href="pdf/CIBERSEGURIDAD/CCST_CISO.pdf" target="_blank"><i class="fas fa-file-pdf"></i> 
+Cisco Certified Support Technician Cybersecurity (CCST Cybersecurity)</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <div class="promo-card" id="github">
+                <h3><i class="fab fa-github"></i> Mi Repositorio</h3>
+                <p>Explora mis proyectos<p>
+                <a href="https://github.com/Niltra" target="_blank" class="btn">Ir a GitHub</a>
+            </div>
+            <div class="promo-card" id="linkedin">
+                <h3><i class="fab fa-linkedin"></i> Perfil Profesional</h3>
+                <p>Conectemos en LinkedIn para compartir conocimientos y oportunidades.</p>
+                <a href="https://www.linkedin.com/in/david-navas-a85a62309" target="_blank" class="btn">Ir a LinkedIn</a>
+            </div>
+        </aside>
+    </div>
+
+    <footer id="contacto">
+        <h2 class="section-title">Contacto</h2>
+        <p>¿Interesado en mi perfil? No dudes en escribirme.</p>
+        <a href="mailto:[navasparejo14@gmail.com]" class="email-link">navasparejo14@gmail.com</a>
+    </footer>
+
+</body>
+</html>
