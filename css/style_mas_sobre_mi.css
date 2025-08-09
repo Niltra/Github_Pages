@@ -1,0 +1,81 @@
+/* Estilos para la página mas_sobre_mi.html */
+
+body {
+    background-color: var(--bg-dark);
+}
+
+.header-simple {
+    background-color: var(--bg-medium);
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.btn-back {
+    /* Hereda .btn de style.css pero aseguramos consistencia */
+    background-color: var(--accent-primary);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background-color: var(--accent-primary-hover);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent-primary);
+}
+
+.btn-back i {
+    margin-right: 8px;
+}
+
+.container-plus {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Los estilos .card y .section-title se heredan de style.css */
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-primary);
+    text-align: justify;
+}
+
+.skills-list i {
+    color: var(--accent-primary); /* Iconos de skills con el azul primario */
+    position: absolute;
+    left: 0;
+    top: 7px; /* Alineación vertical del icono */
+    font-size: 1.2rem;
+}
+
+.skills-list strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Responsive para esta página específica */
+@media (max-width: 768px) {
+    .container-plus {
+        margin-top: 1rem;
+    }
+    .header-simple {
+        padding: 0.8rem;
+    }
+    .btn-back {
+        font-size: 0.9rem;
+    }
+}
