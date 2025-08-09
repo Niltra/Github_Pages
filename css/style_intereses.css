@@ -1,182 +1,65 @@
-/* --- FUENTES TEMÁTICAS --- */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intereses - David Navas</title>
+    <link rel="stylesheet" href="style_intereses.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="stars"></div>
+    <div id="stars2"></div>
 
-/* --- VARIABLES DE COLOR PARA TARJETAS (Se mantienen los colores únicos por tarjeta) --- */
-:root {
-    --nature-color: #2a9d8f;
-    --philosophy-color: #8338ec;
-    --science-color: #6a0dad;
-    --spiderman-color: #e62429;
-    --minecraft-color-grass: #5a832e;
-    --minecraft-color-dirt: #966C4A;
-    --knowledge-color: #fca311; /* Este es nuestro nuevo acento secundario */
-}
+    <div class="header-intereses">
+        <a href="mas_sobre_mi.html" class="btn-back-intereses"><i class="fas fa-arrow-left"></i> Volver</a>
+    </div>
 
-/* --- ANIMACIÓN DE FONDO --- */
-@keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
+    <div class="container-intereses">
+        <header class="title-intereses">
+            <h1>Mis Pasiones</h1>
+            <p>El universo personal que alimenta mi curiosidad y creatividad.</p>
+        </header>
 
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background: #000;
-    color: #c9d1d9;
-    overflow-x: hidden;
-}
+        <div class="grid-intereses">
+            
+            <div class="card-interes nature-card">
+                <div class="card-icon"><i class="fas fa-tree"></i></div>
+                <h2 class="card-title">Naturaleza</h2>
+                <p class="card-text">La costa de Málaga es mi lugar para desconectar. Caminar junto al mar o descubrir un rincón verde me da la paz y la perspectiva necesarias para resolver problemas complejos.</p>
+            </div>
 
-#stars {
-  background:#000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
-  position:fixed; top:0; left:0; right:0; bottom:0; z-index: -2;
-}
-#stars2 {
-  background:transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-  position:fixed; top:0; left:0; right:0; bottom:0; z-index: -1;
-  animation:move-twink-back 200s linear infinite;
-}
+            <div class="card-interes philosophy-card">
+                <div class="card-icon"><i class="fas fa-brain"></i></div>
+                <h2 class="card-title">Psicología y Filosofía</h2>
+                <p class="card-text">Entender el 'porqué' de las cosas, tanto en humanos como en sistemas. La filosofía me enseña a preguntar, y la psicología a entender las respuestas.</p>
+            </div>
 
-.header-intereses {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 10;
-}
+            <div class="card-interes science-card">
+                <div class="card-icon"><i class="fas fa-atom"></i></div>
+                <h2 class="card-title">Ciencia y Biología</h2>
+                <p class="card-text">Desde el cosmos hasta el ADN de los animales, me fascina el conocimiento estructurado. La ciencia es el framework definitivo que explica el mundo.</p>
+            </div>
 
-.btn-back-intereses {
-    font-family: 'Roboto', sans-serif;
-    background-color: rgba(22, 27, 34, 0.7);
-    backdrop-filter: blur(5px);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
-    border: 1px solid #30363d;
-    transition: all 0.3s;
-}
+            <div class="card-interes spiderman-card">
+                <div class="card-icon"><i class="fas fa-spider"></i></div>
+                <h2 class="card-title">Spiderman</h2>
+                <p class="card-text">"Un gran poder conlleva una gran responsabilidad". Para mí, este lema se aplica al desarrollo de software. Es un recordatorio de la ética y el impacto de nuestro trabajo.</p>
+            </div>
 
-.btn-back-intereses:hover {
-    background-color: #161b22;
-    border-color: #c9d1d9;
-}
+            <div class="card-interes minecraft-card">
+                <div class="card-icon"><i class="fas fa-cube"></i></div>
+                <h2 class="card-title">Minecraft</h2>
+                <p class="card-text">No es solo un juego. Es un sandbox infinito de creatividad, lógica y gestión de recursos. Es la prueba de que con bloques simples se pueden construir sistemas asombrosos.</p>
+            </div>
 
-.container-intereses {
-    padding: 2rem;
-}
+             <div class="card-interes knowledge-card">
+                <div class="card-icon"><i class="fas fa-book-journal-whills"></i></div>
+                <h2 class="card-title">El Saber</h2>
+                <p class="card-text">Mi mayor afición es, simplemente, aprender. Disfruto sumergiéndome en documentales, artículos o libros sobre cualquier tema que despierte mi curiosidad.</p>
+            </div>
 
-.title-intereses {
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-
-.title-intereses h1 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 2rem;
-    color: #fff;
-    /* Usamos el color ámbar para el brillo, creando consistencia */
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--knowledge-color), 0 0 20px var(--knowledge-color);
-}
-
-.title-intereses p {
-    font-size: 1.1rem;
-    color: #8b949e;
-    text-align: center;
-}
-
-.grid-intereses {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card-interes {
-    background: rgba(22, 27, 34, 0.8);
-    border: 1px solid #30363d;
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    border-bottom: 4px solid; /* Borde inferior genérico */
-}
-
-.card-interes:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
-}
-
-.card-title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.card-text {
-    color: #8b949e;
-    line-height: 1.6;
-    text-align: justify;
-}
-
-/* --- COLORES PERSONALIZADOS POR TARJETA --- */
-.nature-card { border-color: var(--nature-color); }
-.nature-card .card-icon, .nature-card .card-title { color: var(--nature-color); }
-.nature-card:hover { box-shadow: 0 0 20px var(--nature-color); }
-
-.philosophy-card { border-color: var(--philosophy-color); }
-.philosophy-card .card-icon, .philosophy-card .card-title { color: var(--philosophy-color); }
-.philosophy-card:hover { box-shadow: 0 0 20px var(--philosophy-color); }
-
-.science-card { border-color: var(--science-color); }
-.science-card .card-icon, .science-card .card-title { color: var(--science-color); }
-.science-card:hover { box-shadow: 0 0 20px var(--science-color); }
-
-.spiderman-card { border-color: var(--spiderman-color); }
-.spiderman-card .card-icon, .spiderman-card .card-title { color: var(--spiderman-color); }
-.spiderman-card:hover { box-shadow: 0 0 20px var(--spiderman-color); }
-
-.minecraft-card { border-color: var(--minecraft-color-dirt); }
-.minecraft-card .card-icon, .minecraft-card .card-title { color: var(--minecraft-color-grass); }
-.minecraft-card:hover { box-shadow: 0 0 20px var(--minecraft-color-grass); }
-
-.knowledge-card { border-color: var(--knowledge-color); }
-.knowledge-card .card-icon, .knowledge-card .card-title { color: var(--knowledge-color); }
-.knowledge-card:hover { box-shadow: 0 0 20px var(--knowledge-color); }
-
-/* --- RESPONSIVE PARA INTERESES --- */
-@media (max-width: 768px) {
-    .container-intereses {
-        padding: 1rem;
-    }
-    .title-intereses {
-        margin-top: 5rem; /* Más espacio para el botón de volver */
-        margin-bottom: 2rem;
-    }
-    .title-intereses h1 {
-        font-size: 1.5rem;
-    }
-    .grid-intereses {
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .title-intereses h1 {
-        font-size: 1.2rem;
-    }
-    .card-interes {
-        padding: 1.5rem;
-    }
-}
+        </div>
+    </div>
+</body>
+</html>
