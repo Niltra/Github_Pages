@@ -91,6 +91,7 @@ aside {
     color: var(--accent-primary-hover);
     font-size: 1.1rem;
     font-weight: 300;
+    text-align: center;
 }
 
 /* --- NAVEGACIÓN --- */
@@ -312,4 +313,5 @@ footer {
         padding: 10px 18px;
         font-size: 0.9rem;
     }
+
 }
