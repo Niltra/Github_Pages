@@ -1,0 +1,189 @@
+/* --- FUENTES TEMÁTICAS --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* --- ANIMACIÓN DE FONDO --- */
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #000;
+    color: #c9d1d9;
+    overflow-x: hidden;
+}
+
+.stars, .twinkling {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+#stars {
+  background:#000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+  z-index: 0;
+}
+#stars2 {
+  background:transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+  z-index: 1;
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+.header-intereses {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.btn-back-intereses {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(47, 129, 247, 0.8);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    border: 1px solid rgba(88, 166, 255, 0.8);
+    transition: all 0.3s;
+}
+
+.btn-back-intereses:hover {
+    background-color: #58a6ff;
+    box-shadow: 0 0 10px #58a6ff;
+}
+
+.container-intereses {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.title-intereses {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.title-intereses h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #2f81f7, 0 0 20px #2f81f7;
+}
+
+.title-intereses p {
+    font-size: 1.1rem;
+    color: #8b949e;
+}
+
+.grid-intereses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card-interes {
+    background: rgba(22, 27, 34, 0.8);
+    border: 1px solid #30363d;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid #2f81f7;
+}
+
+.card-interes:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-color: #58a6ff;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #2f81f7;
+    transition: all 0.3s ease;
+}
+
+.card-interes:hover .card-icon {
+    color: #58a6ff;
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #8b949e;
+    line-height: 1.6;
+}
+
+/* --- TARJETAS TEMÁTICAS --- */
+.spiderman-card {
+    border-bottom-color: #e62429; /* Rojo Spiderman */
+}
+.spiderman-card .card-icon {
+    color: #e62429;
+}
+.spiderman-card:hover {
+    border-color: #e62429;
+}
+.spiderman-card:hover .card-icon {
+    color: #ff3c41;
+}
+
+.minecraft-card {
+    border-bottom-color: #5a832e; /* Verde Minecraft */
+}
+.minecraft-card .card-icon {
+    color: #5a832e;
+}
+.minecraft-card:hover {
+    border-color: #6ba93a;
+}
+.minecraft-card:hover .card-icon {
+    color: #7cc345;
+}
+
+@media (max-width: 768px) {
+    .title-intereses h1 {
+        font-size: 1.5rem;
+    }
+}
