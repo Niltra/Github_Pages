@@ -1,0 +1,71 @@
+/* Estilos para la página mas_sobre_mi.html */
+
+body {
+    background-color: var(--bg-dark);
+}
+
+.header-simple {
+    background-color: var(--bg-medium);
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.btn-back {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-back:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-back i {
+    margin-right: 8px;
+}
+
+.container-plus {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.container-plus .card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 2rem;
+}
+
+.container-plus .section-title {
+    font-size: 1.6rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.skills-list i {
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.skills-list strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
