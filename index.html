@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Navas | Dev Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="noise-overlay"></div>
+
+    <div class="container">
+        <!-- HEADER / MODE SWITCHER -->
+        <header class="main-header">
+            <div class="brand">
+                <span class="logo-text">DN<span class="dot">.</span></span>
+            </div>
+            <div class="mode-toggle-container">
+                <button id="btn-dev" class="mode-btn active" aria-label="Developer Mode">
+                    <i class="fas fa-code"></i> Dev
+                </button>
+                <button id="btn-human" class="mode-btn" aria-label="Human Mode">
+                    <i class="fas fa-user"></i> Human
+                </button>
+                <div class="slider-bg"></div>
+            </div>
+        </header>
+
+        <!-- BENTO GRID LAYOUT -->
+        <main class="bento-grid">
+
+            <!-- 1. HERO CARD (Large, Top Left) -->
+            <section class="card hero-card" id="hero">
+                <div class="card-content dev-content visible">
+                    <div class="status-pill" style="margin-bottom: 2.5rem;"><span class="status-dot"></span> Available
+                        for work</div>
+                    <h1 class="hero-title">David Navas</h1>
+                    <h2 class="hero-subtitle">Backend Developer <span class="highlight">&</span> Architect</h2>
+                    <p class="hero-desc">building scalable, secure, and clean java systems.</p>
+                    <div class="hero-actions">
+                        <a href="https://github.com/Niltra" target="_blank" class="btn btn-primary"><i
+                                class="fab fa-github"></i> GitHub</a>
+                        <a href="#projects" class="btn btn-secondary">View Work</a>
+                    </div>
+                </div>
+
+                <div class="card-content human-content hidden" style="text-align: center; align-items: center;">
+                    <div class="status-pill human-pill"><span class="status-dot orange"></span> Exploring Life</div>
+                    <div style="margin: 2rem 0;">
+                        <h1 class="hero-title">David Navas</h1>
+                        <h2 class="hero-subtitle">Curious Mind <span class="highlight-human">&</span> Gamer</h2>
+                    </div>
+                    <p class="hero-desc" style="max-width: 600px; margin: 0 auto 2rem auto; font-style: italic;">"Un
+                        gran poder conlleva una gran curiosidad."</p>
+                    <div class="hero-actions" style="justify-content: center;">
+                        <a href="#about" class="btn btn-primary-human">Mis Pasiones</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. ABOUT/STATS CARD (Tall, Right) -->
+            <section class="card about-card" id="about">
+                <div class="card-glass-bg"></div>
+                <div class="dev-content visible">
+                    <h3 style="text-align: center;">Summary</h3>
+                    <p>Soy desarrollador Backend especializado en <strong>Java</strong> y <strong>Spring Boot</strong>.
+                        Me gusta la parte funcional de las aplicaciones: crear APIs,
+                        estructurar los datos y hacer arquitecturas resilientes.</p>
+
+                    <p>Mi foco principal es construir servicios con <strong>Spring Data</strong> y <strong>JPA</strong>.
+                        Uso Linux, git, y conozco herramientas de gestión como Odoo.</p>
+
+                    <div class="education-box">
+                        <strong style="color: var(--success-green);">Educación</strong><br>
+                        <span style="font-size: 0.9rem; color: #ddd;">Técnico Superior en DAM (MEDAC)</span><br>
+                        <small style="color: var(--text-muted);">2024 - 2026</small>
+                    </div>
+
+                    <div class="cert-box">
+                        <strong style="color: var(--primary-violet);">Certificaciones</strong>
+                        <div
+                            style="margin-top: 8px; font-size: 0.85rem; color: var(--text-muted); display: grid; gap: 4px;">
+                            <span><i class="fas fa-check-circle text-cyan"></i> Spring Data JPA</span>
+                            <span><i class="fas fa-check-circle text-cyan"></i> Spring Framework</span>
+                            <span><i class="fas fa-check-circle text-cyan"></i> Java Productivity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="human-content hidden">
+                    <div class="photo-container">
+                        <img src="CV/image/perfil_david.png" alt="David Profile" class="profile-pic">
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem; text-align: center;">David Navas</h3>
+                    <p class="human-bio" style="text-align: center; font-size: 1rem;">
+                        "No me considero un experto en todo, pero sí alguien que resuelve problemas."<br><br>
+                        Me gusta compartir lo que aprendo y mejorar técnicamente cada día. Apasionado por la tecnología,
+                        la música y la naturaleza.
+                    </p>
+                    <div class="interests-mini-grid">
+                        <i class="fas fa-spider" title="Spiderman"></i>
+                        <i class="fas fa-gamepad" title="Gaming"></i>
+                        <i class="fas fa-mountain" title="Nature"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. STACK MARQUEE (Wide, Middle) -->
+            <section class="card stack-card">
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        <!-- Content injected by JS or CSS for infinite scroll -->
+                        <span>JAVA 17</span> <i class="fab fa-java"></i>
+                        <span>SPRING BOOT</span> <i class="fas fa-leaf"></i>
+                        <span>DOCKER</span> <i class="fab fa-docker"></i>
+                        <span>AWS</span> <i class="fab fa-aws"></i>
+                        <span>GIT</span> <i class="fab fa-git-alt"></i>
+                        <span>SQL</span> <i class="fas fa-database"></i>
+                        <span>LINUX</span> <i class="fab fa-linux"></i>
+                        <span>SECURITY</span> <i class="fas fa-shield-alt"></i>
+                        <!-- DUPLICATES FOR SCROLL -->
+                        <span>JAVA 17</span> <i class="fab fa-java"></i>
+                        <span>SPRING BOOT</span> <i class="fas fa-leaf"></i>
+                        <span>DOCKER</span> <i class="fab fa-docker"></i>
+                        <span>AWS</span> <i class="fab fa-aws"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. PROJECT 1: CRYPTO -->
+            <section class="card project-card crypto-project" id="projects">
+                <div>
+                    <h3 class="project-title"><i class="fas fa-chart-line"></i> CryptoTracker <a
+                            href="https://github.com/Niltra/CryptoTracker" target="_blank" class="icon-link"
+                            style="font-size: 1.2rem;"><i class="fab fa-github"></i></a></h3>
+                    <p class="project-desc-rich">
+                        <strong>Real-Time Financial Data Aggregator.</strong><br>
+                        Desarrollo de un servicio Backend de alta disponibilidad para monitorización de activos en
+                        tiempo real.
+                        <br><br>
+                        💡 <strong>El Reto:</strong> Consumir la API pública de CoinGecko minimizando latencia y
+                        respetando Rate Limits.<br>
+                        🛠 <strong>Solución:</strong> Arquitectura de <em>In-Memory Caching</em> (ConcurrentHashMap) con
+                        TTL, reduciendo consumo API en un 95%.
+                    </p>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java 17</span>
+                    <span class="tech-tag">Spring Boot 3</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">ConcurrentHashMap</span>
+                    <span class="tech-tag">OpenAPI</span>
+                </div>
+            </section>
+
+            <!-- 5. PROJECT 2: BANK -->
+            <section class="card project-card bank-project">
+                <div>
+                    <h3 class="project-title"><i class="fas fa-university"></i> SafeBank <a
+                            href="https://github.com/Niltra/SafeBank.git" target="_blank" class="icon-link"
+                            style="font-size: 1.2rem;"><i class="fab fa-github"></i></a></h3>
+                    <p class="project-desc-rich">
+                        <strong>Secure Banking System Simulation.</strong><br>
+                        Aplicación Full Stack simulando un Core Bancario, implementando flujos financieros seguros.
+                        <br><br>
+                        🛡 <strong>Seguridad:</strong> Autenticación robusta con Spring Security.<br>
+                        🧩 <strong>Integridad:</strong> Uso de <code>@Transactional</code> para atomicidad en
+                        transferencias bancarias.
+                    </p>
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Spring Security</span>
+                    <span class="tech-tag">Spring Data JPA</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">JUnit 5</span>
+                    <span class="tech-tag">Mockito</span>
+                </div>
+            </section>
+
+            <!-- 6. CONTACT / DOWNLOAD (Bottom Wide) -->
+            <section class="card contact-card">
+                <div class="contact-content">
+                    <h3>Let's build something great.</h3>
+                    <div class="contact-links">
+                        <a href="mailto:navasparejo14@gmail.com" class="contact-pill"><i class="fas fa-envelope"></i>
+                            navasparejo14@gmail.com</a>
+                        <a href="https://www.linkedin.com/in/david-navas-a85a62309" target="_blank"
+                            class="contact-pill"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    </div>
+                    <a href="CV/David_Navas_CV.pdf" download class="btn-download">
+                        Download CV <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 David Navas. Built with <i class="fas fa-code text-cyan"></i> & <i
+                    class="fas fa-heart text-red"></i></p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

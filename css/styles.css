@@ -1,0 +1,895 @@
+/* --- MODERN GLASSMORPHISM DESIGN SYSTEM --- */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap');
+
+:root {
+    /* -- DEV MODE PALETTE (Default) -- */
+    --bg-dark: #050505;
+    --bg-panel: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shine: rgba(255, 255, 255, 0.03);
+
+    --primary-cyan: #00f3ff;
+    --primary-violet: #bd00ff;
+    --success-green: #00ff9d;
+    --danger-red: #ff4545;
+
+    --text-main: #ffffff;
+    --text-muted: #888888;
+
+    --font-ui: 'Inter', sans-serif;
+    --font-code: 'Fira Code', monospace;
+
+    /* GRADIENTS */
+    --grad-glow: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(189, 0, 255, 0.05));
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* -- HUMAN MODE PALETTE -- */
+body.mode-human {
+    --bg-dark: #f0f2f5;
+    --bg-panel: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --glass-shine: rgba(255, 255, 255, 0.5);
+
+    --primary-cyan: #ff6b00;
+    /* Orange now */
+    --primary-violet: #333333;
+    /* Dark Grey */
+    --success-green: #10b981;
+
+    --text-main: #111111;
+    --text-muted: #555555;
+
+    --font-ui: 'Outfit', sans-serif;
+    --grad-glow: linear-gradient(135deg, rgba(255, 107, 0, 0.05), rgba(0, 0, 0, 0.02));
+    --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- MAIN LAYOUT --- */
+/* RESET: Allow natural flow */
+html {
+    min-height: 100%;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-ui);
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 2rem 0;
+    /* Add top/bottom padding */
+
+    /* Flex for centering container, but ensure it can grow */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    /* IMPORTANT: Allow scroll */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    transition: background-color 0.6s cubic-bezier(0.22, 1, 0.36, 1), color 0.6s ease;
+}
+
+/* --- BACKGROUND FX --- */
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.4;
+    transition: all 1s ease;
+}
+
+.orb-1 {
+    top: -10%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--primary-cyan), transparent 70%);
+}
+
+.orb-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--primary-violet), transparent 70%);
+}
+
+.mode-human .orb-1 {
+    background: radial-gradient(circle, #ff9f43, transparent 70%);
+    opacity: 0.3;
+}
+
+.mode-human .orb-2 {
+    background: radial-gradient(circle, #ff6b00, transparent 70%);
+    opacity: 0.2;
+}
+
+.noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- MAIN LAYOUT --- */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    /* Removed fixed height */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1.5rem 2rem 1.5rem;
+    /* Added bottom padding */
+    position: relative;
+    z-index: 1;
+}
+
+/* --- HEADER --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: var(--font-ui);
+    letter-spacing: -1px;
+}
+
+.dot {
+    color: var(--primary-cyan);
+}
+
+.mode-human .dot {
+    color: var(--primary-cyan);
+}
+
+/* Reuse logic */
+
+.mode-toggle-container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    padding: 4px;
+    gap: 4px;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.mode-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 32px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+    z-index: 2;
+}
+
+.mode-btn.active {
+    color: var(--bg-dark);
+}
+
+/* Toggle Slider Animation logic handled by JS or simple CSS override */
+.mode-btn.active#btn-dev {
+    background: var(--primary-cyan);
+    box-shadow: 0 0 15px var(--primary-cyan);
+    color: #000;
+}
+
+.mode-human .mode-btn.active#btn-human {
+    background: #000;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- BENTO GRID --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Auto rows to fit content */
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "hero hero hero about"
+        "crypto crypto bank bank"
+        "stack stack stack stack"
+        "contact contact contact contact";
+    gap: 2rem;
+    width: 100%;
+}
+
+/* --- CARD BASE --- */
+.card {
+    background: var(--bg-panel);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- HERO CARD (Area: hero) --- */
+.hero-card {
+    grid-area: hero;
+    padding: 2.5rem;
+    justify-content: center;
+    background-image: var(--grad-glow);
+    display: flex;
+    flex-direction: column;
+    /* CRITICAL FIX: Override base card min-height */
+    min-height: 0;
+    height: fit-content;
+    align-self: center;
+    /* Center in grid row */
+}
+
+/* New Cert Box style to match Education box */
+.cert-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(189, 0, 255, 0.05);
+    /* Slight violet tint */
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--success-green);
+    width: fit-content;
+    margin-bottom: 2rem;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 8px currentColor;
+    animation: pulse 2s infinite;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Fallback defined in .mode-human */
+}
+
+.mode-human .hero-title {
+    background: linear-gradient(to right, #000, #444);
+    -webkit-background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle .highlight {
+    color: var(--primary-cyan);
+    font-weight: 700;
+}
+
+.hero-subtitle .highlight-human {
+    color: var(--primary-cyan);
+    font-weight: 700;
+}
+
+.hero-desc {
+    max-width: 500px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: var(--text-main);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- ABOUT CARD (Area: about) --- */
+.about-card {
+    grid-area: about;
+    background: #0a0a0a;
+    /* Use flex column to distribute content nicely */
+    display: flex;
+    flex-direction: column;
+    /* Ensure it doesn't get too crazy tall if we add spacing, but user complained about cramping so height is needed */
+    height: auto;
+    min-height: 500px;
+    padding: 2.5rem;
+    /* More padding container */
+}
+
+.mode-human .about-card {
+    background: #fff;
+}
+
+.dev-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Added space between text blocks */
+    height: 100%;
+}
+
+.dev-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.dev-content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    /* Better readability */
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.education-box {
+    margin-top: auto;
+    /* Push to bottom or just space it */
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+}
+
+/* Human Mode Spacing */
+.human-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    /* Much more space between elements */
+    height: 100%;
+    padding: 1rem;
+}
+
+.photo-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-violet);
+    box-shadow: 0 0 20px rgba(189, 0, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.human-bio {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    /* Darker text for readability on white */
+    max-width: 90%;
+}
+
+.interests-mini-grid {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.interests-mini-grid i:hover {
+    color: var(--primary-violet);
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+/* --- STACK CARD (Marquee) --- */
+.stack-card {
+    grid-area: stack;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+    padding: 1rem 0;
+    align-items: center;
+}
+
+.marquee-track span {
+    font-weight: 700;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.marquee-track i {
+    font-size: 1.2rem;
+    color: var(--primary-cyan);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* --- PROJECTS OVERHAUL --- */
+.project-card {
+    justify-content: flex-start;
+    padding: 2.5rem;
+    min-height: 500px;
+    gap: 1.5rem;
+}
+
+.crypto-project {
+    grid-area: crypto;
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    background: linear-gradient(160deg, rgba(0, 20, 20, 0.8), rgba(0, 243, 255, 0.02));
+}
+
+.bank-project {
+    grid-area: bank;
+    border: 1px solid rgba(189, 0, 255, 0.4);
+    background: linear-gradient(160deg, rgba(20, 0, 20, 0.8), rgba(189, 0, 255, 0.02));
+}
+
+.mode-human .crypto-project {
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.mode-human .bank-project {
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.project-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-desc-rich {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.project-desc-rich strong {
+    color: var(--text-main);
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.tech-tag {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: var(--text-main);
+    font-family: var(--font-code);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card-header h3 {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+/* Crypto Graph Sim */
+.graph-line {
+    height: 60px;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1) 50%, transparent);
+    border-bottom: 2px solid var(--primary-cyan);
+    position: relative;
+    margin: 1rem 0;
+}
+
+.graph-line::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: 20%;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-cyan);
+}
+
+.crypto-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.crypto-item {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+}
+
+.text-gold {
+    color: #f7931a;
+}
+
+.text-blue {
+    color: #627eea;
+}
+
+/* Bank Visuals */
+.credit-card-mini {
+    background: linear-gradient(135deg, #222, #111);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #333;
+}
+
+.chip {
+    width: 30px;
+    height: 20px;
+    background: #c0a062;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.pan {
+    font-family: var(--font-code);
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 2px 2px #000;
+}
+
+.transaction-mini {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.amount.positive {
+    color: var(--success-green);
+}
+
+.tech-stack-mini {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.tech-stack-mini span {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+/* --- CONTACT --- */
+.contact-card {
+    grid-area: contact;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    /* Tighter padding for cleaner look? Or larger for text? User said "mucho espacio", maybe reduce gap. */
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    gap: 1.5rem;
+    /* Reduced gap */
+}
+
+/* FIX: Targeting H3 inside contact-content directly */
+.contact-content h3 {
+    font-size: 2.5rem;
+    /* Checked: matches requirement */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.mode-human .contact-content h3 {
+    background: linear-gradient(to right, #000, #555);
+    -webkit-background-clip: text;
+}
+
+
+.contact-links {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-pill {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    /* Bigger links */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.contact-pill:hover {
+    color: var(--primary-cyan);
+    transform: scale(1.05);
+}
+
+.btn-download {
+    margin-top: 0;
+    /* Remove extra margin */
+    padding: 12px 24px;
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    /* Pill shape */
+    background: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-download:hover {
+    background: var(--text-main);
+    color: var(--bg-dark);
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding-bottom: 1rem;
+}
+
+.text-cyan {
+    color: var(--primary-cyan);
+}
+
+.text-red {
+    color: var(--danger-red);
+}
+
+
+/* --- HUMAN MODE OVERRIDES (VISIBILITY) --- */
+/* Simple utility classes for switching */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: flex !important;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Specific human styles REMOVED - Duplicates were causing issues */
+color: var(--text-muted);
+margin-bottom: 2rem;
+}
+
+.interests-mini-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-cyan);
+}
+
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        /* Auto rows for scroll */
+        grid-template-areas:
+            "hero hero"
+            "about about"
+            "stack stack"
+            "crypto bank"
+            "contact contact";
+    }
+
+    body {
+        padding: 0;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "hero"
+            "about"
+            "stack"
+            "crypto"
+            "bank"
+            "contact";
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-card {
+        padding: 2rem;
+    }
+
+    .card {
+        min-height: 280px;
+    }
+
+    .crypto-project,
+    .bank-project {
+        min-height: 320px;
+        /* Taller on mobile for content */
+        margin-bottom: 1rem;
+        /* Visual separation */
+    }
+}
